@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FOODIES</title>
+    <style>
+        /* Common styles for food containers */
+        .food-container {
+            margin-left: 460px;
+            margin-top: 50px;
+            display: flex; /* Use flexbox to align items horizontally */
+            align-items: center; /* Center items vertically within the container */
+        }
+
+        /* Styles for the food containers */
+        .food {
+            margin-right: 10px; /* Add some spacing between the picture and buttons */
+        }
+
+        /* Common styles for button containers */
+        .button-container {
+            margin-left: 20px;
+            display: flex; /* Use flexbox for button alignment */
+            align-items: center; /* Center items vertically within button-container */
+        }
+
+        /* Increase button size */
+        .button {
+            font-size: 24px; /* Adjust the font size to make the buttons bigger */
+            width: 40px; /* Adjust the width of the buttons */
+            height: 40px; /* Adjust the height of the buttons */
+            background-color: white;
+            margin-right: 10px; /* Add spacing between buttons */
+        }
+
+        /* Style for dropdown */
+        select {
+            font-size: 16px; /* Adjust the font size of the dropdown */
+            width: 150px; /* Adjust the width of the dropdown */
+        }
+        
+        /* Style for button and select container */
+        .button-and-select-container {
+            display: flex;
+            align-items: center;
+        }
+        h2 {
+            padding-left: 100px;
+        }
+        .button-bottom {
+            margin-left: 50%;
+            border: 1px;
+        }
+        body {
+            background-color: peachpuff;
+        }
+    </style>
+</head>
+<body>
+    <!-- First Food Container -->
+    <div class="food-container">
+        <div class="food">
+            <img src="img/nasilemak.jpeg" class="pic1" width="350" height="230">
+            <h2>NASI LEMAK</h2>
+        </div>
+        <div class="button-container">
+            <div class="button-and-select-container">
+                <button class="button" onclick="increment1()">+</button>
+                <p id="number1">0</p>&nbsp&nbsp
+                <button class="button" onclick="decrement1()">-</button>
+            </div>
+            <select>
+                <option value="option1">sambal</option>
+                <option value="option2">ayam </option>
+                <option value="option3">telur</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Second Food Container -->
+    <div class="food-container">
+        <div class="food">
+            <img src="img/kuew.jpg" class="pic2" width="350" height="230">
+            <h2>KUEW TIAU</h2>
+        </div>
+        <div class="button-container">
+            <div class="button-and-select-container">
+                <button class="button" onclick="increment2()">+</button>
+                <p id="number2">0</p>&nbsp&nbsp
+                <button class="button" onclick="decrement2()">-</button>
+            </div>
+            <select>
+                <option value="option1">sambal</option>
+                <option value="option2">ayam</option>
+                <option value="option3">telur</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Third Food Container -->
+    <div class="food-container">
+        <div class="food">
+            <img src="img/nasigoreng.jpg" class="pic3" width="350" height="230">
+            <h2>NASI GORENG</h2>
+        </div>
+        <div class="button-container">
+            <div class="button-and-select-container">
+                <button class="button" onclick="increment3()">+</button>
+                <p id="number3">0</p>&nbsp&nbsp
+                <button class="button" onclick="decrement3()">-</button>
+            </div>
+            <select>
+                <option value="option1">sambal</option>
+                <option value="option2">ayam</option>
+                <option value="option3">telur</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Fourth Food Container (New) -->
+    <div class="food-container">
+        <div class="food">
+            <img src="img/meegoreng.jpg" class="pic4" width="350" height="230">
+        <h2>MEE GORENG</h2>
+        </div>
+        <div class="button-container">
+            <div class="button-and-select-container">
+                <button class="button" onclick="increment4()">+</button>
+                <p id="number4">0</p>&nbsp&nbsp
+                <button class="button" onclick="decrement4()">-</button>
+            </div>
+            <select>
+                <option value="option1">sambal</option>
+                <option value="option2">telur</option>
+                <option value="option3">ayam</option>
+            </select>
+        </div>
+    </div>
+        <div class="button-bottom">
+                <a href="choose.html">BACK</a>
+                <a href="checkout.html">PAY</a>
+        </div>
+    <!-- JavaScript code -->
+<script>
+    // Initialize variables for the quantities
+    let currentNumber1 = 0;
+    let currentNumber2 = 0;
+    let currentNumber3 = 0;
+    let currentNumber4 = 0;
+
+    // Function to increment the quantity for "HONEYDEW JUICE"
+    function increment1() {
+        currentNumber1++;
+        updateNumber1();
+    }
+
+    // Function to decrement the quantity for "HONEYDEW JUICE"
+    function decrement1() {
+        if (currentNumber1 > 0) {
+            currentNumber1--;
+            updateNumber1();
+        }
+    }
+
+    // Function to increment the quantity for "MILO"
+    function increment2() {
+        currentNumber2++;
+        updateNumber2();
+    }
+
+    // Function to decrement the quantity for "MILO"
+    function decrement2() {
+        if (currentNumber2 > 0) {
+            currentNumber2--;
+            updateNumber2();
+        }
+    }
+
+    // Function to increment the quantity for "SIRAP BANDUNG"
+    function increment3() {
+        currentNumber3++;
+        updateNumber3();
+    }
+
+    // Function to decrement the quantity for "SIRAP BANDUNG"
+    function decrement3() {
+        if (currentNumber3 > 0) {
+            currentNumber3--;
+            updateNumber3();
+        }
+    }
+
+    // Function to increment the quantity for "TEH TARIK"
+    function increment4() {
+        currentNumber4++;
+        updateNumber4();
+    }
+
+    // Function to decrement the quantity for "TEH TARIK"
+    function decrement4() {
+        if (currentNumber4 > 0) {
+            currentNumber4--;
+            updateNumber4();
+        }
+    }
+
+    // Function to update the displayed quantity for "HONEYDEW JUICE"
+    function updateNumber1() {
+        const numberElement = document.getElementById("number1");
+        numberElement.textContent = currentNumber1;
+    }
+
+    // Function to update the displayed quantity for "MILO"
+    function updateNumber2() {
+        const numberElement = document.getElementById("number2");
+        numberElement.textContent = currentNumber2;
+    }
+
+    // Function to update the displayed quantity for "SIRAP BANDUNG"
+    function updateNumber3() {
+        const numberElement = document.getElementById("number3");
+        numberElement.textContent = currentNumber3;
+    }
+
+    // Function to update the displayed quantity for "TEH TARIK"
+    function updateNumber4() {
+        const numberElement = document.getElementById("number4");
+        numberElement.textContent = currentNumber4;
+    }
+
+    // Add event listeners to the buttons
+    document.getElementById("incrementButton1").addEventListener("click", increment1);
+    document.getElementById("decrementButton1").addEventListener("click", decrement1);
+    document.getElementById("incrementButton2").addEventListener("click", increment2);
+    document.getElementById("decrementButton2").addEventListener("click", decrement2);
+    document.getElementById("incrementButton3").addEventListener("click", increment3);
+    document.getElementById("decrementButton3").addEventListener("click", decrement3);
+    document.getElementById("incrementButton4").addEventListener("click", increment4);
+    document.getElementById("decrementButton4").addEventListener("click", decrement4);
+
+    // Initialize the displayed quantities to 0
+    updateNumber1();
+    updateNumber2();
+    updateNumber3();
+    updateNumber4();
+</script>
+</body>
+</html>
+

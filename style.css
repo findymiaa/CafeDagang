@@ -1,0 +1,119 @@
+.search {
+    display: inline-block;
+    position: relative; 
+  }
+  
+  .search input[type="text"] {
+    width: 600px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search button[type="submit"] {
+    background-color: #4e99e9;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: .9s ease;
+  }
+  
+  .search button[type="submit"]:hover {
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    background-color: blue;
+  }
+
+
+  body {
+    background-color: antiquewhite;
+    text-align: center;
+    
+  }
+  .foodies img {
+    width: 20%;
+  }
+.foodies {
+  position: relative;
+  margin-right: 30%;
+}
+.food {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+}
+.foodies button {
+  padding: 30px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  background-color: rgb(163, 187, 255);
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.foodies a:hover {
+  font-weight: bold;
+}
+
+.button a {
+  background-color: white;
+  padding: 3px;
+}
+
+.beverages img {
+  width: 20%;
+}
+.beverages {
+  margin-right: 30%;
+}
+.bev {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+}
+.beverages button {
+  padding: 30px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  background-color: rgb(163, 187, 255);
+  margin-top: 18%;
+  margin-right: 30%;
+}
+.snacks button {
+  padding: 40px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  background-color: rgb(163, 187, 255);
+  margin-left: 12%;
+}
+.snacks .slide1 {
+  width: 16%; /* Set the width to a specific value, e.g., 100% */
+  height: auto; /* Maintain aspect ratio by setting height to auto */
+  margin-top: 20px;
+  margin-right: 46px;
+}
+.snacks .button a .next {
+  margin-right: 30%;
+}
+.next button  {
+  padding: 10px;
+  color: aliceblue;
+  background-color: #4e99e9;
+}
