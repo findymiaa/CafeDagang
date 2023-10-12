@@ -59,9 +59,7 @@
         <div class="container">
             <div class="receipt">
                 <h2>Resit Pembelian</h2>
-                <p>Tarikh: 2023-10-11</p>
-                <p>Nama Item: Nama Item Makanan</p>
-                <p>Jumlah Bayaran: RM 10.00</p>
+                <p>Jumlah Bayaran: RM <span id="totalPrice">0</span></p>
             </div>
         </div>
     </body>
@@ -69,8 +67,22 @@
 
     <script>
         document.getElementById('bayarButton').addEventListener('click', function() {
-            alert('Sila tunggu di kaunter, makanan sedang disediakan');
+            alert('Sila membuat pembayaran dan tunggu di kaunter, makanan anda sedang disediakan');
         });
+
+         // Function to get the value of a specific query parameter from the URL
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Get the total price from the URL's query parameter and display it
+    const totalPrice = getQueryParam('totalPrice');
+
+    if (totalPrice) {
+        document.getElementById('totalPrice').textContent = ` ${totalPrice}`;
+    }
+
     </script>
     
 </body>
