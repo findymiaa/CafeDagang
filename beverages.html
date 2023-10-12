@@ -57,32 +57,41 @@
             margin-right: 10px; /* Add spacing between radio buttons */
         }
         .button-bottom {
-            margin-left: 50%;
+            margin-left: 45%;
+            margin-top: 20px;
             border: 1px;
+            margin-bottom: 2%;
         }
         body {
             background-color: peachpuff;
         }
+        .button-bottom a {
+            color: rgb(249, 255, 255);
+            background-color: rgb(204, 147, 119);
+            padding: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            
+        }
+        .total-price {
+                text-align: center;
+
+            }
     </style>
 </head>
 <body>
     <!-- First Food Container -->
     <div class="food-container">
-        <div class="food">
+        <div class="food" data-price="5">
             <img src="img/honewdew.jpeg" class="pic1" width="350" height="230">
             <h2>HONEYDEW JUICE</h2>
+            <h2>Price: RM 5</h2>
         </div>
         <div class="button-container">
-            <h2>RM 1.50</h2>
-            &nbsp&nbsp&nbsp&nbsp
             <div class="button-and-select-container">
-                <button id="incrementButton1" class="button">+</button>
-                <p id="number1">0</p>&nbsp&nbsp
-                <button id="decrementButton1" class="button">-</button>
-            </div>
-            <div class="radio-buttons">
-                <label><input type="radio" name="options1" value="option1"> panas</label>
-                <label><input type="radio" name="options1" value="option2"> ais (RM0.50)</label>
+                <button class="button" onclick="incrementNasiLemak()">+</button>
+                <p id="numberNasiLemak">0</p>&nbsp&nbsp
+                <button class="button" onclick="decrementNasiLemak()">-</button>
             </div>
         </div>
     </div>
@@ -92,171 +101,195 @@
         <div class="food">
             <img src="img/milo.jpeg" class="pic2" width="350" height="230">
             <h2>MILO</h2>
+            <h2>Proce : RM 3</h2>
         </div>
         <div class="button-container">
-            <h2>RM 2</h2>
-            &nbsp&nbsp&nbsp&nbsp
             <div class="button-and-select-container">
-                <button id="incrementButton2" class="button">+</button>
-                <p id="number2">0</p>&nbsp&nbsp
-                <button id="decrementButton2" class="button">-</button>
-            </div>
-            <div class="radio-buttons">
-                <label><input type="radio" name="options2" value="option1"> panas</label>
-                <label><input type="radio" name="options2" value="option2"> ais (RM0.50)</label>
+                <button class="button" onclick="incrementKuewTiau()">+</button>
+                <p id="numberKuewTiau">0</p>&nbsp&nbsp
+                <button class="button" onclick="decrementKuewTiau()">-</button>
             </div>
         </div>
     </div>
 
     <!-- Third Food Container -->
     <div class="food-container">
-        <div class="food">
+        <div class="food" data-price="5">
             <img src="img/bandung.jpg" class="pic3" width="350" height="230">
             <h2>SIRAP BANDUNG</h2>
+            <h2>Price : RM 5</h2>
         </div>
         <div class="button-container">
-            <h2>RM 2</h2>
-            &nbsp&nbsp&nbsp&nbsp
             <div class="button-and-select-container">
-                <button id="incrementButton3" class="button">+</button>
-                <p id="number3">0</p>&nbsp&nbsp
-                <button id="decrementButton3" class="button">-</button>
-            </div>
-            <div class="radio-buttons">
-                <label><input type="radio" name="options3" value="option1"> panas</label>
-                <label><input type="radio" name="options3" value="option2"> ais (RM0.50)</label>
+                <button class="button" onclick="incrementNasiGoreng()">+</button>
+                <p id="numberNasiGoreng">0</p>&nbsp&nbsp
+                <button class="button" onclick="decrementNasiGoreng()">-</button>
             </div>
         </div>
     </div>
 
     <!-- Fourth Food Container (New) -->
     <div class="food-container">
-        <div class="food">
+        <div class="food" data-price="5">
             <img src="img/tehais.jpg" class="pic4" width="350" height="230">
             <h2>TEH TARIK</h2>
+            <h2>Price : RM 3</h2>
         </div>
         <div class="button-container">
-            <h2>RM 1.50</h2>
-            &nbsp&nbsp&nbsp&nbsp
             <div class="button-and-select-container">
-                <button id="incrementButton4" class="button">+</button>
-                <p id="number4">0</p>&nbsp&nbsp
-                <button id="decrementButton4" class="button">-</button>
-            </div>
-            <div class="radio-buttons">
-                <label><input type="radio" name="options4" value="option1"> panas</label>
-                <label><input type="radio" name="options4" value="option2"> ais (RM0.50)</label>
+                <button class="button" onclick="incrementMeeGoreng()">+</button>
+                <p id="numberMeeGoreng">0</p>&nbsp&nbsp
+                <button class="button" onclick="decrementMeeGoreng()">-</button>
             </div>
         </div>
     </div>
+    <div class="total-price">
+        <div id="totalAmount" class="receipt">
+            <p>Total Price: RM 0</p>
+        </div>
+    </div>
+    <br><br>
     <div class="button-bottom">
         <a href="choose.html" class="back">BACK</a>
-        <a href="checkout.html">PAY</a>
+        <a href="checkout.html" id="payLink" class="pay">PAY</a>
     </div>
 
     <!-- JavaScript code -->
 <script>
+
+    let totalAmount = 0; // Initialize the total amount
+
+    // Function to update the total amount
+    function updateTotalPrice() {
+        const totalElement = document.getElementById("totalAmount");
+        totalElement.textContent = `Total Price: RM ${totalAmount}`;
+    }
+
+    document.getElementById("payLink").addEventListener("click", function () {
+        this.href = `checkout.html?totalPrice=${totalAmount}`;
+    });
+
     // Initialize variables for the quantities
-    let currentNumber1 = 0;
-    let currentNumber2 = 0;
-    let currentNumber3 = 0;
-    let currentNumber4 = 0;
-
-    // Function to increment the quantity for "HONEYDEW JUICE"
-    function increment1() {
-        currentNumber1++;
-        updateNumber1();
-    }
-
-    // Function to decrement the quantity for "HONEYDEW JUICE"
-    function decrement1() {
-        if (currentNumber1 > 0) {
-            currentNumber1--;
+            let currentNumber1 = 0;
+            let currentNumber2 = 0;
+            let currentNumber3 = 0;
+            let currentNumber4 = 0;
+        
+            // Function to increment the quantity for "Nasi Lemak"
+            function incrementNasiLemak() {
+                currentNumber1++;
+                updateNumber1();
+                updateTotalAndPrice(5, true);
+            }
+        
+            // Function to decrement the quantity for "Nasi Lemak"
+            function decrementNasiLemak() {
+                if (currentNumber1 > 0) {
+                    currentNumber1--;
+                    updateNumber1();
+                    updateTotalAndPrice(5, false);
+                }
+            }
+        
+            // Function to increment the quantity for "Kuew Tiau"
+            function incrementKuewTiau() {
+                currentNumber2++;
+                updateNumber2();
+                updateTotalAndPrice(3, true);
+            }
+        
+            // Function to decrement the quantity for "Kuew Tiau"
+            function decrementKuewTiau() {
+                if (currentNumber2 > 0) {
+                    currentNumber2--;
+                    updateNumber2();
+                    updateTotalAndPrice(3, false);
+                }
+            }
+        
+            // Function to increment the quantity for "Nasi Goreng"
+            function incrementNasiGoreng() {
+                currentNumber3++;
+                updateNumber3();
+                updateTotalAndPrice(5, true);
+            }
+        
+            // Function to decrement the quantity for "Nasi Goreng"
+            function decrementNasiGoreng() {
+                if (currentNumber3 > 0) {
+                    currentNumber3--;
+                    updateNumber3();
+                    updateTotalAndPrice(5, false);
+                }
+            }
+        
+            // Function to increment the quantity for "Mee Goreng"
+            function incrementMeeGoreng() {
+                currentNumber4++;
+                updateNumber4();
+                updateTotalAndPrice(3, true);
+            }
+        
+            // Function to decrement the quantity for "Mee Goreng"
+            function decrementMeeGoreng() {
+                if (currentNumber4 > 0) {
+                    currentNumber4--;
+                    updateNumber4();
+                    updateTotalAndPrice(3, false);
+                }
+            }
+        
+            // Function to update the displayed quantity for "Nasi Lemak"
+            function updateNumber1() {
+                const numberElement = document.getElementById("numberNasiLemak");
+                numberElement.textContent = currentNumber1;
+            }
+        
+            // Function to update the displayed quantity for "Kuew Tiau"
+            function updateNumber2() {
+                const numberElement = document.getElementById("numberKuewTiau");
+                numberElement.textContent = currentNumber2;
+            }
+        
+            // Function to update the displayed quantity for "Nasi Goreng"
+            function updateNumber3() {
+                const numberElement = document.getElementById("numberNasiGoreng");
+                numberElement.textContent = currentNumber3;
+            }
+        
+            // Function to update the displayed quantity for "Mee Goreng"
+            function updateNumber4() {
+                const numberElement = document.getElementById("numberMeeGoreng");
+                numberElement.textContent = currentNumber4;
+            }
+        
+            // Function to update the total price and add or subtract the item price
+            function updateTotalAndPrice(price, increment) {
+                if (increment) {
+                    totalAmount += price;
+                } else {
+                    totalAmount -= price;
+                }
+                updateTotalPrice();
+            }
+        
+            // Add event listeners to the buttons
+            document.getElementById("incrementButton1").addEventListener("click", incrementNasiLemak);
+            document.getElementById("decrementButton1").addEventListener("click", decrementNasiLemak);
+            document.getElementById("incrementButton2").addEventListener("click", incrementKuewTiau);
+            document.getElementById("decrementButton2").addEventListener("click", decrementKuewTiau);
+            document.getElementById("incrementButton3").addEventListener("click", incrementNasiGoreng);
+            document.getElementById("decrementButton3").addEventListener("click", decrementNasiGoreng);
+            document.getElementById("incrementButton4").addEventListener("click", incrementMeeGoreng);
+            document.getElementById("decrementButton4").addEventListener("click", decrementMeeGoreng);
+        
+            // Initialize the displayed quantities to 0
             updateNumber1();
-        }
-    }
-
-    // Function to increment the quantity for "MILO"
-    function increment2() {
-        currentNumber2++;
-        updateNumber2();
-    }
-
-    // Function to decrement the quantity for "MILO"
-    function decrement2() {
-        if (currentNumber2 > 0) {
-            currentNumber2--;
             updateNumber2();
-        }
-    }
-
-    // Function to increment the quantity for "SIRAP BANDUNG"
-    function increment3() {
-        currentNumber3++;
-        updateNumber3();
-    }
-
-    // Function to decrement the quantity for "SIRAP BANDUNG"
-    function decrement3() {
-        if (currentNumber3 > 0) {
-            currentNumber3--;
             updateNumber3();
-        }
-    }
-
-    // Function to increment the quantity for "TEH TARIK"
-    function increment4() {
-        currentNumber4++;
-        updateNumber4();
-    }
-
-    // Function to decrement the quantity for "TEH TARIK"
-    function decrement4() {
-        if (currentNumber4 > 0) {
-            currentNumber4--;
             updateNumber4();
-        }
-    }
 
-    // Function to update the displayed quantity for "HONEYDEW JUICE"
-    function updateNumber1() {
-        const numberElement = document.getElementById("number1");
-        numberElement.textContent = currentNumber1;
-    }
 
-    // Function to update the displayed quantity for "MILO"
-    function updateNumber2() {
-        const numberElement = document.getElementById("number2");
-        numberElement.textContent = currentNumber2;
-    }
-
-    // Function to update the displayed quantity for "SIRAP BANDUNG"
-    function updateNumber3() {
-        const numberElement = document.getElementById("number3");
-        numberElement.textContent = currentNumber3;
-    }
-
-    // Function to update the displayed quantity for "TEH TARIK"
-    function updateNumber4() {
-        const numberElement = document.getElementById("number4");
-        numberElement.textContent = currentNumber4;
-    }
-
-    // Add event listeners to the buttons
-    document.getElementById("incrementButton1").addEventListener("click", increment1);
-    document.getElementById("decrementButton1").addEventListener("click", decrement1);
-    document.getElementById("incrementButton2").addEventListener("click", increment2);
-    document.getElementById("decrementButton2").addEventListener("click", decrement2);
-    document.getElementById("incrementButton3").addEventListener("click", increment3);
-    document.getElementById("decrementButton3").addEventListener("click", decrement3);
-    document.getElementById("incrementButton4").addEventListener("click", increment4);
-    document.getElementById("decrementButton4").addEventListener("click", decrement4);
-
-    // Initialize the displayed quantities to 0
-    updateNumber1();
-    updateNumber2();
-    updateNumber3();
-    updateNumber4();
 </script>
 
 </body>
