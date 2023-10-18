@@ -101,7 +101,7 @@
         <div class="food">
             <img src="img/milo.jpeg" class="pic2" width="350" height="230">
             <h2>MILO</h2>
-            <h2>Proce : RM 3</h2>
+            <h2>Price : RM 3</h2>
         </div>
         <div class="button-container">
             <div class="button-and-select-container">
@@ -150,7 +150,7 @@
     </div>
     <br><br>
     <div class="button-bottom">
-        <a href="choose.html" class="back">BACK</a>
+        <a href="foodies.html" class="back">FOODIES</a>
         <a href="checkout.html" id="payLink" class="pay">PAY</a>
     </div>
 
@@ -161,13 +161,14 @@
 
     // Function to update the total amount
     function updateTotalPrice() {
-        const totalElement = document.getElementById("totalAmount");
-        totalElement.textContent = `Total Price: RM ${totalAmount}`;
-    }
+                const totalElement = document.getElementById("totalAmount");
+                totalElement.textContent = `Total Price: RM ${totalAmount}`;
+            }
+    
+            document.getElementById("payLink").addEventListener("click", function () {
+                this.href = `checkout.html?totalPriceBeverages=${totalAmount}`;
+            });
 
-    document.getElementById("payLink").addEventListener("click", function () {
-        this.href = `checkout.html?totalPrice=${totalAmount}`;
-    });
 
     // Initialize variables for the quantities
             let currentNumber1 = 0;
@@ -263,7 +264,7 @@
                 numberElement.textContent = currentNumber4;
             }
         
-            // Function to update the total price and add or subtract the item price
+            // Function to update the total amount
             function updateTotalAndPrice(price, increment) {
                 if (increment) {
                     totalAmount += price;
@@ -271,7 +272,11 @@
                     totalAmount -= price;
                 }
                 updateTotalPrice();
+
+                // Update the "PAY" link to include the total price as a URL parameter
+                document.getElementById("payLink").href = `checkout.html?totalPrice=${totalAmount}`;
             }
+
         
             // Add event listeners to the buttons
             document.getElementById("incrementButton1").addEventListener("click", incrementNasiLemak);
