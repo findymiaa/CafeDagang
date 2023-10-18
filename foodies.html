@@ -75,7 +75,7 @@
         <div class="food" data-price="10">
             <img src="img/nasilemak.jpeg" class="pic1" width="350" height="230">
             <h2>NASI LEMAK</h2>
-            <h2>Price: RM 10</h2>
+            <h2>Price: RM 5</h2>
         </div>
         <div class="button-container">
             <div class="button-and-select-container">
@@ -89,7 +89,7 @@
     <!-- Second Food Container -->
     <div class="food-container">
         <div class="food" data-price="10">
-            <img src="img/kuew.jpg" class "pic2" width="350" height="230">
+            <img src="img/kuew.jpg" class="pic2" width="350" height="230">
             <h2>KUEW TIAU</h2>
             <h2>Price: RM 3</h2>
         </div>
@@ -141,147 +141,127 @@
         </div>
         <br><br>
         <div class="button-bottom">
-            <a href="choose.html" class="back">BACK</a>
+            <a href="beverages.html" class="back">BEVERAGES</a>
             <a href="checkout.html" id="payLink" class="pay">PAY</a>
         </div>
 
         <!-- JavaScript code -->
-        <script>
-            let totalAmount = 0; // Initialize the total amount
+    <script>
+        let totalAmount = 0; // Initialize the total amount
 
-            // Function to update the total amount
-            function updateTotalPrice() {
-                const totalElement = document.getElementById("totalAmount");
-                totalElement.textContent = `Total Price: RM ${totalAmount}`;
-            }
-            
-            document.getElementById("payLink").addEventListener("click", function () {
-                this.href = `checkout.html?totalPrice=${totalAmount}`;
-            });
+        // Function to update the total amount
+        function updateTotalPrice() {
+            const totalElement = document.getElementById("totalAmount");
+            totalElement.textContent = `Total Price: RM ${totalAmount}`;
+        }
 
+        document.getElementById("payLink").addEventListener("click", function () {
+            this.href = `checkout.html?totalPriceFoodies=${totalAmount}`;
+        });
 
-            // Initialize variables for the quantities
-            let currentNumber1 = 0;
-            let currentNumber2 = 0;
-            let currentNumber3 = 0;
-            let currentNumber4 = 0;
-        
-            // Function to increment the quantity for "Nasi Lemak"
-            function incrementNasiLemak() {
-                currentNumber1++;
-                updateNumber1();
-                updateTotalAndPrice(10, true);
-            }
-        
-            // Function to decrement the quantity for "Nasi Lemak"
-            function decrementNasiLemak() {
-                if (currentNumber1 > 0) {
-                    currentNumber1--;
-                    updateNumber1();
-                    updateTotalAndPrice(10, false);
-                }
-            }
-        
-            // Function to increment the quantity for "Kuew Tiau"
-            function incrementKuewTiau() {
-                currentNumber2++;
-                updateNumber2();
-                updateTotalAndPrice(10, true);
-            }
-        
-            // Function to decrement the quantity for "Kuew Tiau"
-            function decrementKuewTiau() {
-                if (currentNumber2 > 0) {
-                    currentNumber2--;
-                    updateNumber2();
-                    updateTotalAndPrice(3, false);
-                }
-            }
-        
-            // Function to increment the quantity for "Nasi Goreng"
-            function incrementNasiGoreng() {
-                currentNumber3++;
-                updateNumber3();
-                updateTotalAndPrice(3, true);
-            }
-        
-            // Function to decrement the quantity for "Nasi Goreng"
-            function decrementNasiGoreng() {
-                if (currentNumber3 > 0) {
-                    currentNumber3--;
-                    updateNumber3();
-                    updateTotalAndPrice(5, false);
-                }
-            }
-        
-            // Function to increment the quantity for "Mee Goreng"
-            function incrementMeeGoreng() {
-                currentNumber4++;
-                updateNumber4();
-                updateTotalAndPrice(3, true);
-            }
-        
-            // Function to decrement the quantity for "Mee Goreng"
-            function decrementMeeGoreng() {
-                if (currentNumber4 > 0) {
-                    currentNumber4--;
-                    updateNumber4();
-                    updateTotalAndPrice(3, false);
-                }
-            }
-        
-            // Function to update the displayed quantity for "Nasi Lemak"
-            function updateNumber1() {
-                const numberElement = document.getElementById("numberNasiLemak");
-                numberElement.textContent = currentNumber1;
-            }
-        
-            // Function to update the displayed quantity for "Kuew Tiau"
-            function updateNumber2() {
-                const numberElement = document.getElementById("numberKuewTiau");
-                numberElement.textContent = currentNumber2;
-            }
-        
-            // Function to update the displayed quantity for "Nasi Goreng"
-            function updateNumber3() {
-                const numberElement = document.getElementById("numberNasiGoreng");
-                numberElement.textContent = currentNumber3;
-            }
-        
-            // Function to update the displayed quantity for "Mee Goreng"
-            function updateNumber4() {
-                const numberElement = document.getElementById("numberMeeGoreng");
-                numberElement.textContent = currentNumber4;
-            }
-        
-            // Function to update the total price and add or subtract the item price
-            function updateTotalAndPrice(price, increment) {
-                if (increment) {
-                    totalAmount += price;
-                } else {
-                    totalAmount -= price;
-                }
-                updateTotalPrice();
-            }
-        
-            // Add event listeners to the buttons
-            document.getElementById("incrementButton1").addEventListener("click", incrementNasiLemak);
-            document.getElementById("decrementButton1").addEventListener("click", decrementNasiLemak);
-            document.getElementById("incrementButton2").addEventListener("click", incrementKuewTiau);
-            document.getElementById("decrementButton2").addEventListener("click", decrementKuewTiau);
-            document.getElementById("incrementButton3").addEventListener("click", incrementNasiGoreng);
-            document.getElementById("decrementButton3").addEventListener("click", decrementNasiGoreng);
-            document.getElementById("incrementButton4").addEventListener("click", incrementMeeGoreng);
-            document.getElementById("decrementButton4").addEventListener("click", decrementMeeGoreng);
-        
-            // Initialize the displayed quantities to 0
+        // Initialize variables for the quantities
+        let currentNumber1 = 0;
+        let currentNumber2 = 0;
+        let currentNumber3 = 0;
+        let currentNumber4 = 0;
+
+        // Function to increment the quantity for "Nasi Lemak"
+        function incrementNasiLemak() {
+            currentNumber1++;
             updateNumber1();
+            updateTotalAndPrice(5, true);
+        }
+
+        // Function to decrement the quantity for "Nasi Lemak"
+        function decrementNasiLemak() {
+            if (currentNumber1 > 0) {
+                currentNumber1--;
+                updateNumber1();
+                updateTotalAndPrice(5, false);
+            }
+        }
+
+        // Function to update the quantity display for "Nasi Lemak"
+        function updateNumber1() {
+            const numberNasiLemak = document.getElementById("numberNasiLemak");
+            numberNasiLemak.textContent = currentNumber1;
+        }
+
+        // Function to increment the quantity for "Kuew Tiau"
+        function incrementKuewTiau() {
+            currentNumber2++;
             updateNumber2();
+            updateTotalAndPrice(3, true);
+        }
+
+        // Function to decrement the quantity for "Kuew Tiau"
+        function decrementKuewTiau() {
+            if (currentNumber2 > 0) {
+                currentNumber2--;
+                updateNumber2();
+                updateTotalAndPrice(3, false);
+            }
+        }
+
+        // Function to update the quantity display for "Kuew Tiau"
+        function updateNumber2() {
+            const numberKuewTiau = document.getElementById("numberKuewTiau");
+            numberKuewTiau.textContent = currentNumber2;
+        }
+
+        // Function to increment the quantity for "Nasi Goreng"
+        function incrementNasiGoreng() {
+            currentNumber3++;
             updateNumber3();
+            updateTotalAndPrice(5, true);
+        }
+
+        // Function to decrement the quantity for "Nasi Goreng"
+        function decrementNasiGoreng() {
+            if (currentNumber3 > 0) {
+                currentNumber3--;
+                updateNumber3();
+                updateTotalAndPrice(5, false);
+            }
+        }
+
+        // Function to update the quantity display for "Nasi Goreng"
+        function updateNumber3() {
+            const numberNasiGoreng = document.getElementById("numberNasiGoreng");
+            numberNasiGoreng.textContent = currentNumber3;
+        }
+
+        // Function to increment the quantity for "Mee Goreng"
+        function incrementMeeGoreng() {
+            currentNumber4++;
             updateNumber4();
+            updateTotalAndPrice(3, true);
+        }
 
+        // Function to decrement the quantity for "Mee Goreng"
+        function decrementMeeGoreng() {
+            if (currentNumber4 > 0) {
+                currentNumber4--;
+                updateNumber4();
+                updateTotalAndPrice(3, false);
+            }
+        }
 
-        </script>
-        
-    </body>
-    </html>
+        // Function to update the quantity display for "Mee Goreng"
+        function updateNumber4() {
+            const numberMeeGoreng = document.getElementById("numberMeeGoreng");
+            numberMeeGoreng.textContent = currentNumber4;
+        }
+
+        // Function to update the total and price based on item quantity
+        function updateTotalAndPrice(price, isIncrement) {
+            if (isIncrement) {
+                totalAmount += price;
+            } else {
+                totalAmount -= price;
+            }
+            updateTotalPrice();
+        }
+    </script>
+</body>
+</html>
