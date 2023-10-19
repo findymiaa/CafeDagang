@@ -37,9 +37,9 @@
             transition: all .3s;
             box-shadow: 6px 6px 12px #c5c5c5,
                         -6px -6px 12px #ffffff;
-                        margin-left: 46%;
-                        margin-top: 40px;
-            }
+            margin-left: 46%;
+            margin-top: 40px;
+        }
 
         button:hover {
             border: 1px solid white;
@@ -53,37 +53,49 @@
 </head>
 <body>
     <h1>SILA BAYAR DI KAUNTER PEMBAYARAN</h1>
-        
-
-    <body>
-        <div class="container">
-            <div class="receipt">
-                <h2>Resit Pembelian</h2>
-                <p>Jumlah Bayaran: RM <span id="totalPrice">0</span></p>
-            </div>
+    <!-- Inside the <body> tag -->
+    <div class="container">
+        <div class="receipt">
+            <h2>Resit Pembelian - Foodies</h2>
+            <p>Jumlah Bayaran: RM <span id="totalPriceFoodies">0.00</span></p>
         </div>
-    </body>
+
+        <div class="receipt">
+            <h2>Resit Pembelian - Beverages</h2>
+            <p>Jumlah Bayaran: RM <span id="totalPriceBeverages">0.00</span></p>
+        </div>
+
+        <div class="receipt">
+            <h2>Resit Pembelian - Combined Total</h2>
+            <p>Jumlah Bayaran: RM <span id="totalPriceCombined">0.00</span></p>
+        </div>
+    </div>
+
     <button type="submit" id="bayarButton">Bayar</button>
 
     <script>
-        document.getElementById('bayarButton').addEventListener('click', function() {
+        // Function to retrieve and display total prices
+        function getTotalPriceFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const totalPriceFoodies = parseFloat(urlParams.get('totalPriceFoodies')) || 0;
+            const totalPriceBeverages = parseFloat(urlParams.get('totalPriceBeverages')) || 0;
+
+            // Calculate the combined total price
+            const combinedTotal = totalPriceFoodies + totalPriceBeverages;
+
+            // Display the individual and combined totals in the HTML
+            document.getElementById('totalPriceFoodies').textContent = totalPriceFoodies.toFixed(2);
+            document.getElementById('totalPriceBeverages').textContent = totalPriceBeverages.toFixed(2);
+            document.getElementById('totalPriceCombined').textContent = combinedTotal.toFixed(2);
+        }
+
+        // Call the function to get and display the combined total
+        getTotalPriceFromURL();
+
+        document.getElementById('bayarButton').addEventListener('click', function () {
             alert('Sila membuat pembayaran dan tunggu di kaunter, makanan anda sedang disediakan');
         });
-
-         // Function to get the value of a specific query parameter from the URL
-    function getQueryParam(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-    }
-
-    // Get the total price from the URL's query parameter and display it
-    const totalPrice = getQueryParam('totalPrice');
-
-    if (totalPrice) {
-        document.getElementById('totalPrice').textContent = ` ${totalPrice}`;
-    }
-
     </script>
-    
+
 </body>
 </html>
