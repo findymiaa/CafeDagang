@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MENU</title>
+    <style>
+        /* Common styles for food containers */
+        .food-container {
+            margin-left: 460px;
+            margin-top: 50px;
+            display: flex; /* Use flexbox to align items horizontally */
+            align-items: center; /* Center items vertically within the container */
+        }
+
+        /* Styles for the food containers */
+        .food {
+            margin-right: 10px; /* Add some spacing between the picture and buttons */
+        }
+
+        /* Common styles for button containers */
+        .button-container {
+            margin-left: 20px;
+            display: flex; /* Use flexbox for button alignment */
+            align-items: center; /* Center items vertically within button-container */
+        }
+
+        /* Increase button size */
+        .button {
+            font-size: 24px; /* Adjust the font size to make the buttons bigger */
+            width: 40px; /* Adjust the width of the buttons */
+            height: 40px; /* Adjust the height of the buttons */
+            background-color: white;
+            margin-right: 10px; /* Add spacing between buttons */
+        }
+
+        /* Style for dropdown */
+        select {
+            font-size: 16px; /* Adjust the font size of the dropdown */
+            width: 150px; /* Adjust the width of the dropdown */
+        }
+        
+        /* Style for button and select container */
+        .button-and-select-container {
+            display: flex;
+            align-items: center;
+        }
+        h2 {
+            padding-left: 100px;
+        }
+        .button-bottom {
+            margin-left: 48%;
+            margin-top: 20px;
+            border: 1px;
+            margin-bottom: 2%;
+        }
+        body {
+            background-color: peachpuff;
+        }
+        .button-bottom a {
+            color: rgb(249, 255, 255);
+            background-color: rgb(204, 147, 119);
+            padding: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            
+        }
+        .total-price {
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- First Food Container -->
+<div class="food-container">
+    <div class="food" data-price="10">
+        <img src="img/nasilemak.jpeg" class="pic1" width="350" height="230">
+        <h2>NASI LEMAK</h2>
+        <h2>Price: RM 5</h2>
+    </div>
+    <div class="button-container">
+        <div class="button-and-select-container">
+            <button class="button" onclick="incrementNasiLemak()">+</button>
+            <p id="numberNasiLemak">0</p>&nbsp&nbsp
+            <button class="button" onclick="decrementNasiLemak()">-</button>
+        </div>
+    </div>
+</div>
+
+<!-- Second Food Container -->
+<div class="food-container">
+    <div class="food" data-price="10">
+        <img src="img/kuew.jpg" class="pic2" width="350" height="230">
+        <h2>KUEW TIAU</h2>
+        <h2>Price: RM 3</h2>
+    </div>
+    <div class="button-container">
+        <div class="button-and-select-container">
+            <button class="button" onclick="incrementKuewTiau()">+</button>
+            <p id="numberKuewTiau">0</p>&nbsp&nbsp
+            <button class="button" onclick="decrementKuewTiau()">-</button>
+        </div>
+    </div>
+</div>
+
+<!-- Third Food Container -->
+<div class="food-container">
+    <div class="food" data-price="10">
+        <img src="img/nasigoreng.jpg" class="pic3" width="350" height="230">
+        <h2>NASI GORENG</h2>
+        <h2>Price: RM 5</h2>
+    </div>
+    <div class="button-container">
+        <div class="button-and-select-container">
+            <button class="button" onclick="incrementNasiGoreng()">+</button>
+            <p id="numberNasiGoreng">0</p>&nbsp&nbsp
+            <button class="button" onclick="decrementNasiGoreng()">-</button>
+        </div>
+    </div>
+</div>
+
+<!-- Fourth Food Container (New) -->
+<div class="food-container">
+    <div class="food" data-price="10">
+        <img src="img/meegoreng.jpg" class="pic4" width="350" height="230">
+        <h2>MEE GORENG</h2>
+        <h2>Price: RM 3</h2>
+    </div>
+    <div class="button-container">
+        <div class="button-and-select-container">
+            <button class="button" onclick="incrementMeeGoreng()">+</button>
+            <p id="numberMeeGoreng">0</p>&nbsp&nbsp
+            <button class="button" onclick="decrementMeeGoreng()">-</button>
+        </div>
+    </div>
+</div>
+
+<!-- First drinks Container -->
+<div class="food-container">
+    <div class="food" data-price="5">
+        <img src="img/honewdew.jpeg" class="pic1" width="350" height="230">
+        <h2>HONEYDEW JUICE</h2>
+        <h2>Price: RM 5</h2>
+    </div>
+    <div class="button-container">
+        <div class="button-and-select-container">
+            <button class="button" onclick="incrementhoneydew()">+</button>
+            <p id="numberhoneydew">0</p>&nbsp&nbsp
+            <button class="button" onclick="decrementhoneydew()">-</button>
+        </div>
+    </div>
+</div>
+
+<!-- Second drinks Container -->
+<div class="food-container">
+    <div class="food">
+        <img src="img/milo.jpeg" class="pic2" width="350" height="230">
+        <h2>MILO</h2>
+        <h2>Price : RM 3</h2>
+    </div>
+    <div class="button-container">
+        <div class="button-and-select-container">
+            <button class="button" onclick="incrementmilo()">+</button>
+            <p id="numbermilo">0</p>&nbsp&nbsp
+            <button class="button" onclick="decrementmilo()">-</button>
+        </div>
+    </div>
+</div>
+
+<!-- Third drinks Container -->
+<div class="food-container">
+    <div class="food" data-price="5">
+        <img src="img/bandung.jpg" class="pic3" width="350" height="230">
+        <h2>SIRAP BANDUNG</h2>
+        <h2>Price : RM 5</h2>
+    </div>
+    <div class="button-container">
+        <div class="button-and-select-container">
+            <button class="button" onclick="incrementbandung()">+</button>
+            <p id="numberbandung">0</p>&nbsp&nbsp
+            <button class="button" onclick="decrementbandung()">-</button>
+        </div>
+    </div>
+</div>
+
+<!-- Fourth drinks Container (New) -->
+<div class="food-container">
+    <div class="food" data-price="5">
+        <img src="img/tehais.jpg" class="pic4" width="350" height="230">
+        <h2>TEH TARIK</h2>
+        <h2>Price : RM 3</h2>
+    </div>
+    <div class="button-container">
+        <div class="button-and-select-container">
+            <button class="button" onclick="incrementtehais()">+</button>
+            <p id="numbertehais">0</p>&nbsp&nbsp
+            <button class="button" onclick="decrementtehais()">-</button>
+        </div>
+    </div>
+</div>
+
+    <div class="total-price">
+        <div id="totalAmount" class="receipt">
+            <p>Total Price: RM 0</p>
+        </div>
+    </div>
+    <br><br>
+    <div class="button-bottom">
+        <!-- In the menu.html page -->
+        <a type="submit" href="checkout.html" id="payLink" class="pay">PAY</a>
+    </div>
+
+    <!-- JavaScript code -->
+<script>
+    let totalAmount = 0; // Initialize the total amount
+
+    // Function to update the total amount
+    function updateTotalPrice() {
+        const totalElement = document.getElementById("totalAmount");
+        totalElement.textContent = `Total Price: RM ${totalAmount}`;
+    }
+
+    document.getElementById("payLink").addEventListener("click", function () {
+        this.href = `checkout.html?totalPriceFoodies=${totalAmount}`;
+    });
+
+    // Initialize variables for the quantities
+    let currentNumber1 = 0;
+    let currentNumber2 = 0;
+    let currentNumber3 = 0;
+    let currentNumber4 = 0;
+    let currentNumber5 = 0;
+                let currentNumber6 = 0;
+                let currentNumber7 = 0;
+                let currentNumber8 = 0;
+
+    // Function to increment the quantity for "Nasi Lemak"
+    function incrementNasiLemak() {
+        currentNumber1++;
+        updateNumber1();
+        updateTotalAndPrice(5, true);
+    }
+
+    // Function to decrement the quantity for "Nasi Lemak"
+    function decrementNasiLemak() {
+        if (currentNumber1 > 0) {
+            currentNumber1--;
+            updateNumber1();
+            updateTotalAndPrice(5, false);
+        }
+    }
+
+    // Function to update the quantity display for "Nasi Lemak"
+    function updateNumber1() {
+        const numberNasiLemak = document.getElementById("numberNasiLemak");
+        numberNasiLemak.textContent = currentNumber1;
+    }
+
+    // Function to increment the quantity for "Kuew Tiau"
+    function incrementKuewTiau() {
+        currentNumber2++;
+        updateNumber2();
+        updateTotalAndPrice(3, true);
+    }
+
+    // Function to decrement the quantity for "Kuew Tiau"
+    function decrementKuewTiau() {
+        if (currentNumber2 > 0) {
+            currentNumber2--;
+            updateNumber2();
+            updateTotalAndPrice(3, false);
+        }
+    }
+
+    // Function to update the quantity display for "Kuew Tiau"
+    function updateNumber2() {
+        const numberKuewTiau = document.getElementById("numberKuewTiau");
+        numberKuewTiau.textContent = currentNumber2;
+    }
+
+    // Function to increment the quantity for "Nasi Goreng"
+    function incrementNasiGoreng() {
+        currentNumber3++;
+        updateNumber3();
+        updateTotalAndPrice(5, true);
+    }
+
+    // Function to decrement the quantity for "Nasi Goreng"
+    function decrementNasiGoreng() {
+        if (currentNumber3 > 0) {
+            currentNumber3--;
+            updateNumber3();
+            updateTotalAndPrice(5, false);
+        }
+    }
+
+    // Function to update the quantity display for "Nasi Goreng"
+    function updateNumber3() {
+        const numberNasiGoreng = document.getElementById("numberNasiGoreng");
+        numberNasiGoreng.textContent = currentNumber3;
+    }
+
+    // Function to increment the quantity for "Mee Goreng"
+    function incrementMeeGoreng() {
+        currentNumber4++;
+        updateNumber4();
+        updateTotalAndPrice(3, true);
+    }
+
+    // Function to decrement the quantity for "Mee Goreng"
+    function decrementMeeGoreng() {
+        if (currentNumber4 > 0) {
+            currentNumber4--;
+            updateNumber4();
+            updateTotalAndPrice(3, false);
+        }
+    }
+
+    // Function to update the quantity display for "Mee Goreng"
+    function updateNumber4() {
+        const numberMeeGoreng = document.getElementById("numberMeeGoreng");
+        numberMeeGoreng.textContent = currentNumber4;
+    }
+
+    // Function to increment the quantity for "honeydew"
+    function incrementhoneydew() {
+                    currentNumber5++;
+                    updateNumber5();
+                    updateTotalAndPrice(5, true);
+                }
+            
+                // Function to decrement the quantity for "honeydew"
+                function decrementhoneydew() {
+                    if (currentNumber5 > 0) {
+                        currentNumber5--;
+                        updateNumber5();
+                        updateTotalAndPrice(5, false);
+                    }
+                }
+            
+                // Function to increment the quantity for "milo"
+                function incrementmilo() {
+                    currentNumber6++;
+                    updateNumber6();
+                    updateTotalAndPrice(3, true);
+                }
+            
+                // Function to decrement the quantity for "milo"
+                function decrementmilo() {
+                    if (currentNumber6 > 0) {
+                        currentNumber6--;
+                        updateNumber6();
+                        updateTotalAndPrice(3, false);
+                    }
+                }
+            
+                // Function to increment the quantity for "bandung"
+                function incrementbandung() {
+                    currentNumber7++;
+                    updateNumber7();
+                    updateTotalAndPrice(5, true);
+                }
+            
+                // Function to decrement the quantity for "bandung"
+                function decrementbandung() {
+                    if (currentNumber7 > 0) {
+                        currentNumber7--;
+                        updateNumber7();
+                        updateTotalAndPrice(5, false);
+                    }
+                }
+            
+                // Function to increment the quantity for "teh ais"
+                function incrementtehais() {
+                    currentNumber8++;
+                    updateNumber8();
+                    updateTotalAndPrice(3, true);
+                }
+            
+                // Function to decrement the quantity for "teh ais"
+                function decrementtehais() {
+                    if (currentNumber8 > 0) {
+                        currentNumber8--;
+                        updateNumber8();
+                        updateTotalAndPrice(3, false);
+                    }
+                }
+            
+                // Function to update the displayed quantity for "honeydew"
+                function updateNumber5() {
+                    const numberElement = document.getElementById("numberhoneydew");
+                    numberElement.textContent = currentNumber5;
+                }
+            
+                // Function to update the displayed quantity for "milo"
+                function updateNumber6() {
+                    const numberElement = document.getElementById("numbermilo");
+                    numberElement.textContent = currentNumber6;
+                }
+            
+                // Function to update the displayed quantity for "bandung"
+                function updateNumber7() {
+                    const numberElement = document.getElementById("numberbandung");
+                    numberElement.textContent = currentNumber7;
+                }
+            
+                // Function to update the displayed quantity for "teh ais"
+                function updateNumber8() {
+                    const numberElement = document.getElementById("numbertehais");
+                    numberElement.textContent = currentNumber8;
+                }
+
+    // Function to update the total and price based on item quantity
+function updateTotalAndPrice(price, isIncrement) {
+    if (isIncrement) {
+        totalAmount += price;
+    } else {
+        totalAmount -= price;
+    }
+    updateTotalPrice(); // This is where you should update the total price
+}
+    
+
+// Update the "PAY" link to include the total price as a URL parameter
+document.getElementById("payLink").addEventListener("click", function () {
+    // Collect the selected item details
+    const selectedItems = [];
+
+    if (currentNumber1 > 0) {
+        selectedItems.push(`Nasi Lemak x${currentNumber1}`);
+    }
+    if (currentNumber2 > 0) {
+        selectedItems.push(`Kuew Tiau x${currentNumber2}`);
+    }
+    if (currentNumber3 > 0) {
+        selectedItems.push(`Nasi Goreng x${currentNumber3}`);
+    }
+    if (currentNumber4 > 0) {
+        selectedItems.push(`Mee Goreng x${currentNumber4}`);
+    }
+    if (currentNumber5 > 0) {
+        selectedItems.push(`Honeydew Juice x${currentNumber5}`);
+    }
+    if (currentNumber6 > 0) {
+        selectedItems.push(`Milo x${currentNumber6}`);
+    }
+    if (currentNumber7 > 0) {
+        selectedItems.push(`Sirap Bandung x${currentNumber7}`);
+    }
+    if (currentNumber8 > 0) {
+        selectedItems.push(`Teh Tarik x${currentNumber8}`);
+    }
+
+    // Combine the selected item details into a single string
+    const selectedItemsString = selectedItems.join(', ');
+
+    // Update the "PAY" link to include both the selected items and total price as URL parameters
+    this.href = `checkout.html?selectedItems=${encodeURIComponent(selectedItemsString)}&totalPriceFoodies=${totalAmount}`;
+});
+
+
+</script>
+</body>
+</html>
