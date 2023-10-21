@@ -56,46 +56,39 @@
     <!-- Inside the <body> tag -->
     <div class="container">
         <div class="receipt">
-            <h2>Resit Pembelian - Foodies</h2>
-            <p>Jumlah Bayaran: RM <span id="totalPriceFoodies">0.00</span></p>
-        </div>
-
-        <div class="receipt">
-            <h2>Resit Pembelian - Beverages</h2>
-            <p>Jumlah Bayaran: RM <span id="totalPriceBeverages">0.00</span></p>
-        </div>
-
-        <div class="receipt">
-            <h2>Resit Pembelian - Combined Total</h2>
-            <p>Jumlah Bayaran: RM <span id="totalPriceCombined">0.00</span></p>
+            <h2>Resit Pembelian</h2>
+            <!-- Inside the receipt <div> in checkout.html -->
+            <p>Items Ordered: <br><span id="selectedItemsReceipt"></span></p>
+            <p>Jumlah Bayaran: <br>RM <span id="totalPriceCombined">0.00</span></p>
         </div>
     </div>
 
     <button type="submit" id="bayarButton">Bayar</button>
 
     <script>
-        // Function to retrieve and display total prices
         function getTotalPriceFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
-            const totalPriceFoodies = parseFloat(urlParams.get('totalPriceFoodies')) || 0;
-            const totalPriceBeverages = parseFloat(urlParams.get('totalPriceBeverages')) || 0;
-
-            // Calculate the combined total price
-            const combinedTotal = totalPriceFoodies + totalPriceBeverages;
-
-            // Display the individual and combined totals in the HTML
-            document.getElementById('totalPriceFoodies').textContent = totalPriceFoodies.toFixed(2);
-            document.getElementById('totalPriceBeverages').textContent = totalPriceBeverages.toFixed(2);
-            document.getElementById('totalPriceCombined').textContent = combinedTotal.toFixed(2);
+            const totalPriceCombined = parseFloat(urlParams.get('totalPriceFoodies')) || 0;
+            document.getElementById('totalPriceCombined').textContent = `${totalPriceCombined.toFixed(2)}`;
         }
-
-        // Call the function to get and display the combined total
-        getTotalPriceFromURL();
-
-        document.getElementById('bayarButton').addEventListener('click', function () {
-            alert('Sila membuat pembayaran dan tunggu di kaunter, makanan anda sedang disediakan');
+    
+        function getSelectedItemsFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedItems = urlParams.get('selectedItems');
+            const receiptElement = document.getElementById('selectedItemsReceipt');
+            receiptElement.textContent = selectedItems || 'No items selected';
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            getTotalPriceFromURL();
+            getSelectedItemsFromURL();
+    
+            document.getElementById('bayarButton').addEventListener('click', function () {
+                alert('Sila membuat pembayaran dan tunggu di kaunter, makanan anda sedang disediakan');
+            });
         });
     </script>
+    
 
 </body>
 </html>
