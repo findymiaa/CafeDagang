@@ -11,9 +11,13 @@
             align-items: center; /* Center items vertically within the container */
         }
 
-        /* Styles for the food containers */
         .food {
             margin-right: 10px; /* Add some spacing between the picture and buttons */
+            margin-left: 30px; /* Add margin to the left of the picture */
+        }
+
+        .food img {
+            border-radius: 30px; /* Add border radius to round the corners of the picture */
         }
 
         /* Common styles for button containers */
@@ -50,32 +54,45 @@
             margin-left: 48%;
             margin-top: 20px;
             border: 1px;
-            margin-bottom: 2%;
+            margin-bottom: 5%;
         }
         body {
-            background-color: peachpuff;
+            background-image: url(img/wallpaper.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-position: center center;
         }
         .button-bottom a {
             color: rgb(249, 255, 255);
             background-color: rgb(204, 147, 119);
-            padding: 20px;
+            padding-bottom: 20px;
+            padding-left: 30px;
+            padding-top: 20px;
+            padding-right: 30px;
             border-radius: 5px;
             text-decoration: none;
-            
+        }
+        .button-bottom a:hover {
+            background-color: blanchedalmond;
+            color: black;
         }
         .total-price {
             text-align: center;
         }
-        
+        h1 {
+            margin-left: 46%;
+        }
     </style>
 </head>
 <body>
+    <h1>MENU</h1>
     <!-- First Food Container -->
 <div class="food-container">
     <div class="food" data-price="10">
         <img src="img/nasilemak.jpeg" class="pic1" width="350" height="230">
-        <h2>NASI LEMAK</h2>
-        <h2>Price: RM 5</h2>
+        <h2>Nasi Lemak</h2>
+        <h3>Price: RM 5</h3>
     </div>
     <div class="button-container">
         <div class="button-and-select-container">
@@ -90,8 +107,8 @@
 <div class="food-container">
     <div class="food" data-price="10">
         <img src="img/kuew.jpg" class="pic2" width="350" height="230">
-        <h2>KUEW TIAU</h2>
-        <h2>Price: RM 3</h2>
+        <h2>Kuew Tiau</h2>
+        <h3>Price: RM 3</h3>
     </div>
     <div class="button-container">
         <div class="button-and-select-container">
@@ -106,8 +123,8 @@
 <div class="food-container">
     <div class="food" data-price="10">
         <img src="img/nasigoreng.jpg" class="pic3" width="350" height="230">
-        <h2>NASI GORENG</h2>
-        <h2>Price: RM 5</h2>
+        <h2>Nasi Goreng</h2>
+        <h3>Price: RM 5</h3>
     </div>
     <div class="button-container">
         <div class="button-and-select-container">
@@ -122,8 +139,8 @@
 <div class="food-container">
     <div class="food" data-price="10">
         <img src="img/meegoreng.jpg" class="pic4" width="350" height="230">
-        <h2>MEE GORENG</h2>
-        <h2>Price: RM 3</h2>
+        <h2>Mee Goreng</h2>
+        <h3>Price: RM 3</h3>
     </div>
     <div class="button-container">
         <div class="button-and-select-container">
@@ -138,8 +155,8 @@
 <div class="food-container">
     <div class="food" data-price="5">
         <img src="img/honewdew.jpeg" class="pic1" width="350" height="230">
-        <h2>HONEYDEW JUICE</h2>
-        <h2>Price: RM 5</h2>
+        <h2>Honeydew Juice</h2>
+        <h3>Price: RM 5</h3>
     </div>
     <div class="button-container">
         <div class="button-and-select-container">
@@ -154,8 +171,8 @@
 <div class="food-container">
     <div class="food">
         <img src="img/milo.jpeg" class="pic2" width="350" height="230">
-        <h2>MILO</h2>
-        <h2>Price : RM 3</h2>
+        <h2>Milo Ais</h2>
+        <h3>Price : RM 3</h3>
     </div>
     <div class="button-container">
         <div class="button-and-select-container">
@@ -170,8 +187,8 @@
 <div class="food-container">
     <div class="food" data-price="5">
         <img src="img/bandung.jpg" class="pic3" width="350" height="230">
-        <h2>SIRAP BANDUNG</h2>
-        <h2>Price : RM 5</h2>
+        <h2>Sirap Bandung</h2>
+        <h3>Price : RM 5</h3>
     </div>
     <div class="button-container">
         <div class="button-and-select-container">
@@ -186,8 +203,8 @@
 <div class="food-container">
     <div class="food" data-price="5">
         <img src="img/tehais.jpg" class="pic4" width="350" height="230">
-        <h2>TEH TARIK</h2>
-        <h2>Price : RM 3</h2>
+        <h2>Teh Ais</h2>
+        <h3>Price : RM 3</h3>
     </div>
     <div class="button-container">
         <div class="button-and-select-container">
